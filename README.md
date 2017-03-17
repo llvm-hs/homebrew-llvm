@@ -5,6 +5,7 @@ compiler](http://llvm.org). It currently contains:
 
  * llvm-3.8
  * llvm-3.9
+ * llvm-4.0
 
 
 ## Quickstart
