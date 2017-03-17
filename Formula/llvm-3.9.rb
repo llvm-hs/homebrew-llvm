@@ -172,8 +172,16 @@ class Llvm39 < Formula
     ln_s "libLLVM.dylib", install_prefix/"lib/libLLVM-3.9.dylib"
     ln_s "libLLVM.dylib", install_prefix/"lib/libLLVM-3.9.1.dylib"
 
-    # Fix this LC_LOAD_DYLIB entry in libLLVM.dylib
+    # Set LC_LOAD_DYLIB entries to absolute paths
     system "install_name_tool", "-change", "@rpath/libLTO.dylib", install_prefix/"lib/libLTO.dylib", install_prefix/"lib/libLLVM.dylib"
+
+    # Set LC_ID_DYLIB entries to absolute paths
+    system "install_name_tool", "-id", install_prefix/"lib/libLLVM.dylib", install_prefix/"lib/libLLVM.dylib"
+    system "install_name_tool", "-id", install_prefix/"lib/libLTO.dylib", install_prefix/"lib/libLTO.dylib"
+    system "install_name_tool", "-id", install_prefix/"lib/libc++.1.0.dylib", install_prefix/"lib/libc++.1.0.dylib"
+    system "install_name_tool", "-id", install_prefix/"lib/libclang.dylib", install_prefix/"lib/libclang.dylib"
+    system "install_name_tool", "-id", install_prefix/"lib/libomp.dylib", install_prefix/"lib/libomp.dylib"
+    system "install_name_tool", "-id", install_prefix/"lib/libunwind.1.0.dylib", install_prefix/"lib/libunwind.1.0.dylib"
 
     Dir.glob(install_prefix/"bin/*") do |exec_path|
       basename = File.basename(exec_path)
