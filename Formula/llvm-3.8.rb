@@ -63,7 +63,7 @@ class Llvm38 < Formula
     end
 
     resource "lld" do
-      url "http://llvm.org/git/lld.git"
+      url "http://llvm.org/git/lld.git", :branch => "release_38"
     end
 
     resource "openmp" do
@@ -110,6 +110,7 @@ class Llvm38 < Formula
 
     clang_buildpath.install resource("clang")
     libcxx_buildpath.install resource("libcxx")
+    (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/polly").install resource("polly")
     (buildpath/"tools/clang/tools/extra").install resource("clang-tools-extra")
     (buildpath/"projects/openmp").install resource("openmp")
