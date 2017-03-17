@@ -3,6 +3,7 @@
 A tap which contains versioned formulae for the [LLVM
 compiler](http://llvm.org). It currently contains:
 
+ * llvm-3.7
  * llvm-3.8
  * llvm-3.9
  * llvm-4.0
