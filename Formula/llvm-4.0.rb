@@ -132,6 +132,7 @@ class Llvm40 < Formula
     args = %W[
       -DCMAKE_INSTALL_PREFIX=#{install_prefix}
       -DCMAKE_BUILD_TYPE=Release
+      -DLLVM_ENABLE_ASSERTIONS=ON
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_ENABLE_RTTI=ON
