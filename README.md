@@ -1,7 +1,10 @@
 # Homebrew LLVM
 
-A tap which contains versioned formulae for the [LLVM
-compiler](http://llvm.org). It currently contains:
+A tap which contains versioned (executable suffixed with version number)
+formulae for the [LLVM compiler](http://llvm.org). This will build LLVM and
+Clang in Release+Assertions mode, including the `libLLVM` shared library.
+
+It currently provides:
 
  * llvm-3.7
  * llvm-3.8
@@ -14,14 +17,14 @@ compiler](http://llvm.org). It currently contains:
 To use these formulae, either:
 
 ```sh
-$ brew tap tmcdonell/homebrew-llvm
+$ brew tap llvm-hs/homebrew-llvm
 $ brew install <formula>
 ```
 
 or:
 
 ```sh
-$ brew install tmcdonell/homebrew-llvm/<formula>
+$ brew install llvm-hs/homebrew-llvm/<formula>
 ```
 
 ## Troubleshooting
