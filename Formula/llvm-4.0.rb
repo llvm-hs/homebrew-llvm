@@ -3,47 +3,47 @@ class Llvm40 < Formula
   homepage "http://llvm.org/"
 
   stable do
-    url "http://releases.llvm.org/4.0.0/llvm-4.0.0.src.tar.xz"
-    sha256 "8d10511df96e73b8ff9e7abbfb4d4d432edbdbe965f1f4f07afaf370b8a533be"
+    url "http://releases.llvm.org/4.0.1/llvm-4.0.1.src.tar.xz"
+    sha256 "da783db1f82d516791179fe103c71706046561f7972b18f0049242dee6712b51"
 
     resource "clang" do
-      url "http://releases.llvm.org/4.0.0/cfe-4.0.0.src.tar.xz"
-      sha256 "cea5f88ebddb30e296ca89130c83b9d46c2d833685e2912303c828054c4dc98a"
+      url "http://releases.llvm.org/4.0.1/cfe-4.0.1.src.tar.xz"
+      sha256 "61738a735852c23c3bdbe52d035488cdb2083013f384d67c1ba36fabebd8769b"
     end
 
     resource "clang-tools-extra" do
-      url "http://releases.llvm.org/4.0.0/clang-tools-extra-4.0.0.src.tar.xz"
-      sha256 "41b7d37eb128fd362ab3431be5244cf50325bb3bb153895735c5bacede647c99"
+      url "http://releases.llvm.org/4.0.1/clang-tools-extra-4.0.1.src.tar.xz"
+      sha256 "35d1e64efc108076acbe7392566a52c35df9ec19778eb9eb12245fc7d8b915b6"
     end
 
     resource "compiler-rt" do
-      url "http://releases.llvm.org/4.0.0/compiler-rt-4.0.0.src.tar.xz"
-      sha256 "d3f25b23bef24c305137e6b44f7e81c51bbec764c119e01512a9bd2330be3115"
+      url "http://releases.llvm.org/4.0.1/compiler-rt-4.0.1.src.tar.xz"
+      sha256 "a3c87794334887b93b7a766c507244a7cdcce1d48b2e9249fc9a94f2c3beb440"
     end
 
     resource "polly" do
-      url "http://releases.llvm.org/4.0.0/polly-4.0.0.src.tar.xz"
-      sha256 "27a5dbf95e8aa9e0bbe3d6c5d1e83c92414d734357aa0d6c16020a65dc4dcd97"
+      url "http://releases.llvm.org/4.0.1/polly-4.0.1.src.tar.xz"
+      sha256 "b443bb9617d776a7d05970e5818aa49aa2adfb2670047be8e9f242f58e84f01a"
     end
 
     resource "lld" do
-      url "http://releases.llvm.org/4.0.0/lld-4.0.0.src.tar.xz"
-      sha256 "33e06457b9ce0563c89b11ccc7ccabf9cff71b83571985a5bf8684c9150e7502"
+      url "http://releases.llvm.org/4.0.1/lld-4.0.1.src.tar.xz"
+      sha256 "63ce10e533276ca353941ce5ab5cc8e8dcd99dbdd9c4fa49f344a212f29d36ed"
     end
 
     resource "openmp" do
-      url "http://releases.llvm.org/4.0.0/openmp-4.0.0.src.tar.xz"
-      sha256 "db55d85a7bb289804dc42fc5c8e35ca24dfc3885782261b675a194fd7e206e26"
+      url "http://releases.llvm.org/4.0.1/openmp-4.0.1.src.tar.xz"
+      sha256 "ec693b170e0600daa7b372240a06e66341ace790d89eaf4a843e8d56d5f4ada4"
     end
 
     resource "libcxx" do
-      url "http://releases.llvm.org/4.0.0/libcxx-4.0.0.src.tar.xz"
-      sha256 "4f4d33c4ad69bf9e360eebe6b29b7b19486948b1a41decf89d4adec12473cf96"
+      url "http://releases.llvm.org/4.0.1/libcxx-4.0.1.src.tar.xz"
+      sha256 "520a1171f272c9ff82f324d5d89accadcec9bc9f3c78de11f5575cdb99accc4c"
     end
 
     resource "libunwind" do
-      url "http://releases.llvm.org/4.0.0/libunwind-4.0.0.src.tar.xz"
-      sha256 "0755efa9f969373d4d543123bbed4b3f9a835f6302875c1379c5745857725973"
+      url "http://releases.llvm.org/4.0.1/libunwind-4.0.1.src.tar.xz"
+      sha256 "3b072e33b764b4f9b5172698e080886d1f4d606531ab227772a7fc08d6a92555"
     end
   end
 
@@ -86,7 +86,7 @@ class Llvm40 < Formula
     end
   end
 
-  # http://releases.llvm.org/4.0.0/docs/GettingStarted.html#requirements
+  # http://releases.llvm.org/4.0.1/docs/GettingStarted.html#requirements
   depends_on "libffi"
   depends_on "cmake" => :build
 
@@ -102,7 +102,7 @@ class Llvm40 < Formula
     "4.0"
   end
 
-  # http://releases.llvm.org/4.0.0/docs/CMake.html
+  # http://releases.llvm.org/4.0.1/docs/CMake.html
   def install
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
