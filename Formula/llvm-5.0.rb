@@ -174,7 +174,7 @@ class Llvm50 < Formula
 
     # These versioned .dylib symlinks are missing for some reason
     # Note that we use relative symlinks
-    ln_s "libLLVM.dylib", install_prefix/"lib/libLLVM-5.0.dylib"
+    ln_s "libLLVM.dylib", install_prefix/"lib/libLLVM-#{ver}.dylib"
 
     # Set LC_LOAD_DYLIB entries to absolute paths
     system "install_name_tool", "-change", "@rpath/libLLVM.dylib", install_prefix/"lib/libLLVM.dylib", install_prefix/"lib/libLTO.dylib"
@@ -214,7 +214,7 @@ class Llvm50 < Formula
 
     # test for sed errors since some llvm makefiles assume that sed
     # understands '\n' which is true for gnu sed and not for bsd sed.
-    assert_no_match /PATH\)n/, (lib/"llvm-5.0/share/llvm/cmake/LLVMConfig.cmake").read
+    assert_no_match /PATH\)n/, (lib/"llvm-#{ver}/share/llvm/cmake/LLVMConfig.cmake").read
     system "#{bin}/llvm-config-#{ver}", "--version"
   end
 end
