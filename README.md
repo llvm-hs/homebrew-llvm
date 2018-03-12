@@ -11,6 +11,7 @@ It currently provides:
  * llvm-3.9
  * llvm-4.0
  * llvm-5.0
+ * llvm-6.0
 
 
 ## Quickstart
