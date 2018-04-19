@@ -195,7 +195,7 @@ class Llvm39 < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Extra tools are installed in #{opt_share}/clang-#{ver}
 
     To link to libc++, something like the following is required:
