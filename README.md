@@ -20,14 +20,14 @@ It currently provides:
 To use these formulae, either:
 
 ```sh
-$ brew tap llvm-hs/homebrew-llvm
+$ brew tap llvm-hs/llvm
 $ brew install <formula>
 ```
 
 or:
 
 ```sh
-$ brew install llvm-hs/homebrew-llvm/<formula>
+$ brew install llvm-hs/llvm/<formula>
 ```
 
 ## Troubleshooting
