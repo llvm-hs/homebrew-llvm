@@ -93,8 +93,7 @@ class Llvm70 < Formula
   depends_on "cmake" => :build
 
   # requires gcc >= 4.8
-  fails_with :gcc_4_0
-  fails_with :gcc
+  fails_with :gcc_4_2
   ("4.3".."4.7").each do |n|
     fails_with :gcc => n
   end
