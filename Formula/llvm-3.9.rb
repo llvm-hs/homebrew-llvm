@@ -91,7 +91,6 @@ class Llvm39 < Formula
   depends_on "cmake" => :build
 
   # requires gcc >= 4.7
-  fails_with :gcc_4_2
   ("4.3".."4.6").each do |n|
     fails_with :gcc => n
   end
