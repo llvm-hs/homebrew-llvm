@@ -95,9 +95,7 @@ class Llvm38 < Formula
   # LLVM installs its own standard library which confuses stdlib checking.
   cxxstdlib_check :skip
 
-  # Apple's libstdc++ is too old to build LLVM
-  fails_with :gcc
-
+  # http://releases.llvm.org/3.8.1/docs/CMake.html
   def install
     # One of llvm makefiles relies on gnu sed behavior to generate CMake modules correctly
     ENV.prepend_path "PATH", "#{Formula["gnu-sed"].opt_libexec}/gnubin"

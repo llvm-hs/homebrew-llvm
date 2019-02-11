@@ -92,11 +92,6 @@ class Llvm70 < Formula
   depends_on "libffi"
   depends_on "cmake" => :build
 
-  # requires gcc >= 4.8
-  ("4.3".."4.7").each do |n|
-    fails_with :gcc => n
-  end
-
   # version suffix
   def ver
     "7.0"
