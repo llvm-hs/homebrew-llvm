@@ -1,4 +1,4 @@
-class Llvm70 < Formula
+class Llvm7 < Formula
   desc "Next-gen compiler infrastructure"
   homepage "http://llvm.org/"
 
@@ -94,7 +94,7 @@ class Llvm70 < Formula
 
   # version suffix
   def ver
-    "7.0"
+    "7"
   end
 
   # http://releases.llvm.org/7.0.0/docs/CMake.html
