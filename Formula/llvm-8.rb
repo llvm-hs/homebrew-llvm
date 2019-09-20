@@ -2,50 +2,50 @@ class Llvm8 < Formula
   desc "Next-gen compiler infrastructure"
   homepage "http://llvm.org/"
 
-  version = "8.0.0"
+  version = "8.0.1"
 
   stable do
     url "http://releases.llvm.org/#{version}/llvm-#{version}.src.tar.xz"
-    sha256 "8872be1b12c61450cacc82b3d153eab02be2546ef34fa3580ed14137bb26224c"
+    sha256 "44787a6d02f7140f145e2250d56c9f849334e11f9ae379827510ed72f12b75e7"
 
     resource "clang" do
       url "http://releases.llvm.org/#{version}/cfe-#{version}.src.tar.xz"
-      sha256 "084c115aab0084e63b23eee8c233abb6739c399e29966eaeccfc6e088e0b736b"
+      sha256 "70effd69f7a8ab249f66b0a68aba8b08af52aa2ab710dfb8a0fba102685b1646"
     end
 
     resource "clang-tools-extra" do
       url "http://releases.llvm.org/#{version}/clang-tools-extra-#{version}.src.tar.xz"
-      sha256 "4f00122be408a7482f2004bcf215720d2b88cf8dc78b824abb225da8ad359d4b"
+      sha256 "187179b617e4f07bb605cc215da0527e64990b4a7dd5cbcc452a16b64e02c3e1"
     end
 
     resource "compiler-rt" do
       url "http://releases.llvm.org/#{version}/compiler-rt-#{version}.src.tar.xz"
-      sha256 "b435c7474f459e71b2831f1a4e3f1d21203cb9c0172e94e9d9b69f50354f21b1"
+      sha256 "11828fb4823387d820c6715b25f6b2405e60837d12a7469e7a8882911c721837"
     end
 
     resource "polly" do
       url "http://releases.llvm.org/#{version}/polly-#{version}.src.tar.xz"
-      sha256 "e3f5a3d6794ef8233af302c45ceb464b74cdc369c1ac735b6b381b21e4d89df4"
+      sha256 "e8a1f7e8af238b32ce39ab5de1f3317a2e3f7d71a8b1b8bbacbd481ac76fd2d1"
     end
 
     resource "lld" do
       url "http://releases.llvm.org/#{version}/lld-#{version}.src.tar.xz"
-      sha256 "9caec8ec922e32ffa130f0fb08e4c5a242d7e68ce757631e425e9eba2e1a6e37"
+      sha256 "9fba1e94249bd7913e8a6c3aadcb308b76c8c3d83c5ce36c99c3f34d73873d88"
     end
 
     resource "openmp" do
       url "http://releases.llvm.org/#{version}/openmp-#{version}.src.tar.xz"
-      sha256 "f7b1705d2f16c4fc23d6531f67d2dd6fb78a077dd346b02fed64f4b8df65c9d5"
+      sha256 "3e85dd3cad41117b7c89a41de72f2e6aa756ea7b4ef63bb10dcddf8561a7722c"
     end
 
     resource "libcxx" do
       url "http://releases.llvm.org/#{version}/libcxx-#{version}.src.tar.xz"
-      sha256 "c2902675e7c84324fb2c1e45489220f250ede016cc3117186785d9dc291f9de2"
+      sha256 "7f0652c86a0307a250b5741ab6e82bb10766fb6f2b5a5602a63f30337e629b78"
     end
 
     resource "libunwind" do
       url "http://releases.llvm.org/#{version}/libunwind-#{version}.src.tar.xz"
-      sha256 "ff243a669c9cef2e2537e4f697d6fb47764ea91949016f2d643cb5d8286df660"
+      sha256 "1870161dda3172c63e632c1f60624564e1eb0f9233cfa8f040748ca5ff630f6e"
     end
   end
 
