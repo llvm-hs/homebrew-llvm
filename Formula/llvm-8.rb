@@ -5,46 +5,46 @@ class Llvm8 < Formula
   version = "8.0.1"
 
   stable do
-    url "http://releases.llvm.org/#{version}/llvm-#{version}.src.tar.xz"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-#{version}/llvm-#{version}.src.tar.xz"
     sha256 "44787a6d02f7140f145e2250d56c9f849334e11f9ae379827510ed72f12b75e7"
 
     resource "clang" do
-      url "http://releases.llvm.org/#{version}/cfe-#{version}.src.tar.xz"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-#{version}/cfe-#{version}.src.tar.xz"
       sha256 "70effd69f7a8ab249f66b0a68aba8b08af52aa2ab710dfb8a0fba102685b1646"
     end
 
     resource "clang-tools-extra" do
-      url "http://releases.llvm.org/#{version}/clang-tools-extra-#{version}.src.tar.xz"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-#{version}/clang-tools-extra-#{version}.src.tar.xz"
       sha256 "187179b617e4f07bb605cc215da0527e64990b4a7dd5cbcc452a16b64e02c3e1"
     end
 
     resource "compiler-rt" do
-      url "http://releases.llvm.org/#{version}/compiler-rt-#{version}.src.tar.xz"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-#{version}/compiler-rt-#{version}.src.tar.xz"
       sha256 "11828fb4823387d820c6715b25f6b2405e60837d12a7469e7a8882911c721837"
     end
 
     resource "polly" do
-      url "http://releases.llvm.org/#{version}/polly-#{version}.src.tar.xz"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-#{version}/polly-#{version}.src.tar.xz"
       sha256 "e8a1f7e8af238b32ce39ab5de1f3317a2e3f7d71a8b1b8bbacbd481ac76fd2d1"
     end
 
     resource "lld" do
-      url "http://releases.llvm.org/#{version}/lld-#{version}.src.tar.xz"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-#{version}/lld-#{version}.src.tar.xz"
       sha256 "9fba1e94249bd7913e8a6c3aadcb308b76c8c3d83c5ce36c99c3f34d73873d88"
     end
 
     resource "openmp" do
-      url "http://releases.llvm.org/#{version}/openmp-#{version}.src.tar.xz"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-#{version}/openmp-#{version}.src.tar.xz"
       sha256 "3e85dd3cad41117b7c89a41de72f2e6aa756ea7b4ef63bb10dcddf8561a7722c"
     end
 
     resource "libcxx" do
-      url "http://releases.llvm.org/#{version}/libcxx-#{version}.src.tar.xz"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-#{version}/libcxx-#{version}.src.tar.xz"
       sha256 "7f0652c86a0307a250b5741ab6e82bb10766fb6f2b5a5602a63f30337e629b78"
     end
 
     resource "libunwind" do
-      url "http://releases.llvm.org/#{version}/libunwind-#{version}.src.tar.xz"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-#{version}/libunwind-#{version}.src.tar.xz"
       sha256 "1870161dda3172c63e632c1f60624564e1eb0f9233cfa8f040748ca5ff630f6e"
     end
   end
