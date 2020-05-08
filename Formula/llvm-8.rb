@@ -50,6 +50,9 @@ class Llvm8 < Formula
   end
 
   bottle do
+    root_url "https://github.com/llvm-hs/homebrew-llvm/releases/download/v8.0.1"
+    cellar :any
+    sha256 "95987da7dac35c8115dc2a172bb1f19a36a8f9f88a1157c04ff08e9a6110b0f5" => :mojave
   end
 
   head do
