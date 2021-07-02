@@ -51,8 +51,7 @@ class Llvm10 < Formula
 
   bottle do
     root_url "https://github.com/llvm-hs/homebrew-llvm/releases/download/v10.0.0"
-    cellar :any
-    sha256 "05ddd0e387a766edd302b55f9635f7108a4ebdbd5fb39d8f4c3c57cb5d472961" => :mojave
+    sha256 cellar: :any, mojave: "05ddd0e387a766edd302b55f9635f7108a4ebdbd5fb39d8f4c3c57cb5d472961"
   end
 
   head do
@@ -96,9 +95,9 @@ class Llvm10 < Formula
   end
 
   # http://releases.llvm.org/10.0.0/docs/GettingStarted.html#requirements
-  depends_on "libffi"
   depends_on "cmake" => :build
-  depends_on :xcode => :build
+  depends_on xcode: :build
+  depends_on "libffi"
 
   # version suffix
   def ver
@@ -167,7 +166,7 @@ class Llvm10 < Formula
     (install_prefix/"bin").install_symlink share/"clang-#{ver}/tools/scan-build/bin/scan-build"
     (install_prefix/"share/man/man1").install_symlink share/"clang-#{ver}/tools/scan-build/scan-build.1"
 
-    (lib/"python2.7/site-packages").install "bindings/python/llvm" => "llvm-#{ver}",
+    (lib/"python2.7/site-packages").install "bindings/python/llvm"                  => "llvm-#{ver}",
                                             clang_buildpath/"bindings/python/clang" => "clang-#{ver}"
 
     # replace the existing "clang -> clang-10" symlink
@@ -201,13 +200,14 @@ class Llvm10 < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Extra tools are installed in #{opt_share}/clang-#{ver}
+  def caveats
+    <<~EOS
+      Extra tools are installed in #{opt_share}/clang-#{ver}
 
-    To link to libc++, something like the following is required:
-      CXX="clang++-#{ver} -stdlib=libc++"
-      CXXFLAGS="$CXXFLAGS -nostdinc++ -I#{opt_lib}/llvm-#{ver}/include/c++/v1"
-      LDFLAGS="$LDFLAGS -L#{opt_lib}/llvm-#{ver}/lib"
+      To link to libc++, something like the following is required:
+        CXX="clang++-#{ver} -stdlib=libc++"
+        CXXFLAGS="$CXXFLAGS -nostdinc++ -I#{opt_lib}/llvm-#{ver}/include/c++/v1"
+        LDFLAGS="$LDFLAGS -L#{opt_lib}/llvm-#{ver}/lib"
     EOS
   end
 
@@ -216,7 +216,7 @@ class Llvm10 < Formula
 
     # test for sed errors since some llvm makefiles assume that sed
     # understands '\n' which is true for gnu sed and not for bsd sed.
-    assert_no_match /PATH\)n/, (lib/"llvm-#{ver}/share/llvm/cmake/LLVMConfig.cmake").read
+    assert_no_match(/PATH\)n/, (lib/"llvm-#{ver}/share/llvm/cmake/LLVMConfig.cmake").read)
     system "#{bin}/llvm-config-#{ver}", "--version"
   end
 end

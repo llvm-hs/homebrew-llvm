@@ -51,50 +51,49 @@ class Llvm8 < Formula
 
   bottle do
     root_url "https://github.com/llvm-hs/homebrew-llvm/releases/download/v8.0.1"
-    cellar :any
-    sha256 "95987da7dac35c8115dc2a172bb1f19a36a8f9f88a1157c04ff08e9a6110b0f5" => :mojave
+    sha256 cellar: :any, mojave: "95987da7dac35c8115dc2a172bb1f19a36a8f9f88a1157c04ff08e9a6110b0f5"
   end
 
   head do
-    url "http://llvm.org/git/llvm.git", :branch => "release_80"
+    url "http://llvm.org/git/llvm.git", branch: "release_80"
 
     resource "clang" do
-      url "http://llvm.org/git/clang.git", :branch => "release_80"
+      url "http://llvm.org/git/clang.git", branch: "release_80"
     end
 
     resource "clang-tools-extra" do
-      url "http://llvm.org/git/clang-tools-extra.git", :branch => "release_80"
+      url "http://llvm.org/git/clang-tools-extra.git", branch: "release_80"
     end
 
     resource "compiler-rt" do
-      url "http://llvm.org/git/compiler-rt.git", :branch => "release_80"
+      url "http://llvm.org/git/compiler-rt.git", branch: "release_80"
     end
 
     resource "polly" do
-      url "http://llvm.org/git/polly.git", :branch => "release_80"
+      url "http://llvm.org/git/polly.git", branch: "release_80"
     end
 
     resource "lld" do
-      url "http://llvm.org/git/lld.git", :branch => "release_80"
+      url "http://llvm.org/git/lld.git", branch: "release_80"
     end
 
     resource "openmp" do
-      url "http://llvm.org/git/openmp.git", :branch => "release_80"
+      url "http://llvm.org/git/openmp.git", branch: "release_80"
     end
 
     resource "libcxx" do
-      url "http://llvm.org/git/libcxx.git", :branch => "release_80"
+      url "http://llvm.org/git/libcxx.git", branch: "release_80"
     end
 
     resource "libunwind" do
-      url "http://llvm.org/git/libunwind.git", :branch => "release_80"
+      url "http://llvm.org/git/libunwind.git", branch: "release_80"
     end
   end
 
   # http://releases.llvm.org/8.0.0/docs/GettingStarted.html#requirements
-  depends_on "libffi"
   depends_on "cmake" => :build
-  depends_on :xcode => :build
+  depends_on xcode: :build
+  depends_on "libffi"
 
   # version suffix
   def ver
@@ -163,7 +162,7 @@ class Llvm8 < Formula
     (install_prefix/"bin").install_symlink share/"clang-#{ver}/tools/scan-build/bin/scan-build"
     (install_prefix/"share/man/man1").install_symlink share/"clang-#{ver}/tools/scan-build/scan-build.1"
 
-    (lib/"python2.7/site-packages").install "bindings/python/llvm" => "llvm-#{ver}",
+    (lib/"python2.7/site-packages").install "bindings/python/llvm"                  => "llvm-#{ver}",
                                             clang_buildpath/"bindings/python/clang" => "clang-#{ver}"
 
     # replace the existing "clang -> clang-8" symlink
@@ -197,13 +196,14 @@ class Llvm8 < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Extra tools are installed in #{opt_share}/clang-#{ver}
+  def caveats
+    <<~EOS
+      Extra tools are installed in #{opt_share}/clang-#{ver}
 
-    To link to libc++, something like the following is required:
-      CXX="clang++-#{ver} -stdlib=libc++"
-      CXXFLAGS="$CXXFLAGS -nostdinc++ -I#{opt_lib}/llvm-#{ver}/include/c++/v1"
-      LDFLAGS="$LDFLAGS -L#{opt_lib}/llvm-#{ver}/lib"
+      To link to libc++, something like the following is required:
+        CXX="clang++-#{ver} -stdlib=libc++"
+        CXXFLAGS="$CXXFLAGS -nostdinc++ -I#{opt_lib}/llvm-#{ver}/include/c++/v1"
+        LDFLAGS="$LDFLAGS -L#{opt_lib}/llvm-#{ver}/lib"
     EOS
   end
 
@@ -212,7 +212,7 @@ class Llvm8 < Formula
 
     # test for sed errors since some llvm makefiles assume that sed
     # understands '\n' which is true for gnu sed and not for bsd sed.
-    assert_no_match /PATH\)n/, (lib/"llvm-#{ver}/share/llvm/cmake/LLVMConfig.cmake").read
+    assert_no_match(/PATH\)n/, (lib/"llvm-#{ver}/share/llvm/cmake/LLVMConfig.cmake").read)
     system "#{bin}/llvm-config-#{ver}", "--version"
   end
 end
