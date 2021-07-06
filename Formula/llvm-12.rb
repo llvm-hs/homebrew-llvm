@@ -10,10 +10,10 @@ class Llvm12 < Formula
     sha256 "9ed1688943a4402d7c904cc4515798cdb20080066efa010fe7e1f2551b423628"
   end
 
-  # bottle do
-  #   root_url "https://github.com/llvm-hs/homebrew-llvm/releases/download/v12.0.0"
-  #   sha256 cellar: :any, big_sur: ""
-  # end
+  bottle do
+    root_url "https://github.com/llvm-hs/homebrew-llvm/releases/download/v12.0.0"
+    sha256 cellar: :any, big_sur: "86f4773b03246bacb48cedb7ea6cc2be395a738ef2ae5eb666894790f47013db"
+  end
 
   # Clang cannot find system headers if Xcode CLT is not installed
   pour_bottle? do
