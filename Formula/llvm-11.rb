@@ -39,10 +39,10 @@ class Llvm11 < Formula
     end
   end
 
-  # bottle do
-  #   root_url "https://github.com/llvm-hs/homebrew-llvm/releases/download/v11.1.0"
-  #   sha256 cellar :any, big_sur: ""
-  # end
+  bottle do
+    root_url "https://github.com/llvm-hs/homebrew-llvm/releases/download/v11.1.0"
+    sha256 cellar: :any, big_sur: "53755f19b6999b6744b637c62d54235663d385d7e73207e188a4790e33e4cac5"
+  end
 
   # Clang cannot find system headers if Xcode CLT is not installed
   pour_bottle? do
