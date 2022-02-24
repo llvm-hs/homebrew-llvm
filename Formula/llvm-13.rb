@@ -11,6 +11,9 @@ class Llvm13 < Formula
   end
 
   bottle do
+    root_url "https://github.com/llvm-hs/homebrew-llvm/releases/download/v13.0.1"
+    rebuild 1
+    sha256 cellar: :any, monterey: "d173cf9a4a290544591fe7a4f43e2f7a33d2c53d32391943745420c702f6ff01"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
